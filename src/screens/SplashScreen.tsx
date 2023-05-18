@@ -6,6 +6,7 @@ import {AppLogo} from '../theme/images';
 import {useNavigation} from '@react-navigation/native';
 import {MainNavigationParamList} from '../navigations/MainNavigation';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {colors} from '../theme/colors';
 
 type SplashScreenNavigationProp = NativeStackNavigationProp<
   MainNavigationParamList,
@@ -33,6 +34,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: colors.background,
   },
   logo: {
     height: 100,

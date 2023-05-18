@@ -11,6 +11,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {Provider} from 'react-redux';
 import {store} from './src/redux/store';
 import MainNavigation from './src/navigations/MainNavigation';
+import './src/i18n/i18n';
 
 function App(): JSX.Element {
   return (
