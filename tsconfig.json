@@ -1,0 +1,13 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "strict": true
+  },
+  "files": ["./node_modules/redux-persist/types/storage/index.d.ts"],
+  "paths": {
+    "*": ["src/*"],
+    "tests": ["tests/*"],
+    "@components/*": ["src/components/*"]
+  }
+}
