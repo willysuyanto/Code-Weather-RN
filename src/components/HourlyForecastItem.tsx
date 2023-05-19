@@ -23,7 +23,6 @@ export default function HourlyForecastItem(props: HourlyForecastItemProps) {
       return moment(date).format('HH:mm');
     }
   };
-  console.log(item);
   return (
     <View style={styles.forecastContainer}>
       <Text style={styles.forecastDate}>{renderTime(item?.dt_txt)}</Text>
@@ -59,5 +58,6 @@ const styles = StyleSheet.create({
   forecastTemp: {
     fontSize: scaleFont(16),
     fontWeight: '600',
+    color: colors.textdark,
   },
 });

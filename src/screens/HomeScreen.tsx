@@ -93,7 +93,7 @@ export default function HomeScreen() {
     return (
       <View style={styles.loader}>
         <ActivityIndicator />
-        <Text>Loading</Text>
+        <Text style={styles.loadingText}>Loading</Text>
       </View>
     );
   };
@@ -141,7 +141,7 @@ export default function HomeScreen() {
               <Card.Title>{t('weatherDetails')}</Card.Title>
               <Card.Divider />
               <View style={styles.weatherDetailInfo}>
-                <Text>Wind</Text>
+                <Text style={styles.detailInfoLabel}>Wind</Text>
                 <View style={baseStyle.flexRow}>
                   <Text
                     style={
@@ -161,7 +161,7 @@ export default function HomeScreen() {
               </View>
               <Card.Divider />
               <View style={styles.weatherDetailInfo}>
-                <Text>Humidity</Text>
+                <Text style={styles.detailInfoLabel}>Humidity</Text>
                 <Text
                   style={
                     styles.detailInfoText
@@ -169,14 +169,14 @@ export default function HomeScreen() {
               </View>
               <Card.Divider />
               <View style={styles.weatherDetailInfo}>
-                <Text>Visibility</Text>
+                <Text style={styles.detailInfoLabel}>Visibility</Text>
                 <Text style={styles.detailInfoText}>{`${convertToKm(
                   weather.currentWeather?.visibility,
                 )} km`}</Text>
               </View>
               <Card.Divider />
               <View style={styles.weatherDetailInfo}>
-                <Text>Pressure</Text>
+                <Text style={styles.detailInfoLabel}>Pressure</Text>
                 <Text
                   style={
                     styles.detailInfoText
@@ -189,7 +189,7 @@ export default function HomeScreen() {
               nestedScrollEnabled
               showsHorizontalScrollIndicator={false}>
               {weather.data?.list.map(item => (
-                <HourlyForecastItem item={item} />
+                <HourlyForecastItem key={item.dt} item={item} />
               ))}
             </ScrollView>
           </View>
@@ -215,12 +215,14 @@ const styles = StyleSheet.create({
   },
   mainText: {
     fontSize: scaleFont(size.sm),
+    color: colors.textdark,
   },
   descText: {
     color: colors.secondary,
   },
   tempText: {
     fontSize: scaleFont(72),
+    color: colors.textdark,
   },
   detailCard: {
     width: '100%',
@@ -233,14 +235,21 @@ const styles = StyleSheet.create({
   },
   detailInfoText: {
     fontWeight: '600',
+    color: colors.textdark,
+  },
+  detailInfoLabel: {
+    color: colors.textdark,
   },
   loader: {
     flexDirection: 'row',
     alignSelf: 'center',
     marginTop: '50%',
   },
+  loadingText: {
+    color: colors.textdark,
+  },
 });
 
 const iconRotation = (rotation: number | undefined): ViewStyle => ({
-  transform: [{rotate: `${rotation}deg`}],
+  transform: [{rotate: `${rotation ? rotation : 0}deg`}],
 });

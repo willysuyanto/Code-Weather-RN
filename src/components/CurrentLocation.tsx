@@ -24,9 +24,9 @@ export default function CurrentLocation() {
         <View>
           <Text style={[baseStyle.textSmall]}>{t('currentLocation')}</Text>
           <Text style={[baseStyle.textMedium]}>
-            {`${location.data?.length ? location.data[0].name : ''}, ${
-              location.data?.length ? location.data[0].state : ''
-            }`}
+            {`${
+              location.data?.length ? location.data[0].local_names['en'] : ''
+            }, ${location.data?.length ? location.data[0].state : ''}`}
           </Text>
         </View>
       </View>

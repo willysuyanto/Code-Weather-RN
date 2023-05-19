@@ -16,6 +16,7 @@ const locale =
     : NativeModules.I18nManager.localeIdentifier;
 
 i18n.use(initReactI18next).init({
+  compatibilityJSON: 'v3',
   resources,
   lng: locale,
   fallbackLng: 'en',
